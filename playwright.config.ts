@@ -11,7 +11,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   
   // HTML test report generation
-  reporter: [['html', { open: 'never' }]],
+  reporter: [['list'], ['html', { open: 'never' }]],
   
   use: {
     // Environment-based base URL configuration

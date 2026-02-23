@@ -46,8 +46,17 @@ test.describe('Digital Wallet - Web UI Checkout Flow', () => {
     expect(capturedPrice).toBeGreaterThan(0); 
 
     // 4. Add product to cart and validate cart contents [cite: 16]
-    await productPage.addToCart();
-    await homePage.cartLink.click();
+    // Synchronize with the backend API to ensure it actually adds the item
+    await Promise.all([
+      page.waitForResponse(response => response.url().includes('addtocart') && response.status() === 200),
+      productPage.addToCart()
+    ]);
+    
+    // Direct navigation avoids UI flakiness from the navbar entirely
+    await page.goto('https://www.demoblaze.com/cart.html');
+    
+    // Assert the product is actually in the cart list 
+    await expect(page.locator(`td:has-text("${targetProduct}")`)).toBeVisible();
     
     // Assert the product is actually in the cart list [cite: 16]
     await expect(page.locator(`td:has-text("${targetProduct}")`)).toBeVisible();

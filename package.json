@@ -1,13 +1,24 @@
 {
   "name": "digital-wallet-automation",
   "version": "1.0.0",
-  "description": "",
+  "description": "E-Commerce & FinTech Automation Suite with Playwright",
   "main": "index.js",
   "directories": {
     "test": "tests"
   },
-  "scripts": {},
-  "keywords": [],
+  "scripts": {
+    "test": "npx playwright test",
+    "test:ui": "npx playwright test tests/ui/",
+    "test:ui:payment": "npx playwright test tests/ui/payment-gateway.spec.ts",
+    "test:api": "npx playwright test tests/api/",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "automation",
+    "testing",
+    "qa"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",

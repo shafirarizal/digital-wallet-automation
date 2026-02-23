@@ -1,0 +1,20 @@
+[
+  {
+    "scenario": "Valid Credit Card Purchase",
+    "cardName": "John Doe",
+    "cardNumber": "1234567890123456",
+    "month": "12",
+    "year": "2026",
+    "isValid": true,
+    "thresholdLimit": 5000
+  },
+  {
+    "scenario": "Invalid - Missing Card Number",
+    "cardName": "Jane Doe",
+    "cardNumber": "",
+    "month": "05",
+    "year": "2025",
+    "isValid": false,
+    "thresholdLimit": 5000
+  }
+]
