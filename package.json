@@ -7,12 +7,13 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "npx playwright test",
-    "test:ui": "npx playwright test tests/ui/",
+    "test": "npx playwright test --workers=1",
+    "test:ui": "npx playwright test tests/ui/ --workers=1",
     "test:ui:payment": "npx playwright test tests/ui/payment-gateway.spec.ts",
     "test:api": "npx playwright test tests/api/",
     "report": "npx playwright show-report"
   },
+  
   "keywords": [
     "playwright",
     "automation",

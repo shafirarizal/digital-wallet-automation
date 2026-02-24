@@ -22,10 +22,19 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
 
+  /* Configure projects for major desktop browsers */
   projects: [
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+    {
+      name: 'webkit', // Apple's Safari engine
+      use: { ...devices['Desktop Safari'] },
     }
   ],
 });
